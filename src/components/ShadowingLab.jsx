@@ -72,7 +72,7 @@ export default function ShadowingLab({ setView, selectedPhrase, onSpeechGoalComp
     return () => {
       clearInterval(recordingTimerRef.current);
     };
-  }, [isRecording]);
+  }, [isRecording, onSpeechGoalComplete]);
 
   const handleMicToggle = () => {
     if (isRecording) {

@@ -7,7 +7,7 @@ import ChatSimulator from './components/ChatSimulator';
 import VocabularyFlashcards from './components/VocabularyFlashcards';
 import LevelSelection from './components/LevelSelection';
 import Registration from './components/Registration';
-import { User, Award, Flame, Calendar, BookOpen, Star, RefreshCw } from 'lucide-react';
+import { User, Award, Flame, BookOpen, Star, RefreshCw } from 'lucide-react';
 
 export default function App() {
   const [currentView, setView] = useState('dashboard');

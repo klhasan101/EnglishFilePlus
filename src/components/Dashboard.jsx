@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Flame, Bell, Check, Play, Lock, ChevronDown, Award, BookOpen, Star } from 'lucide-react';
+import { Flame, Bell, Check, Play, Lock, ChevronDown, Award, Star } from 'lucide-react';
 
 export default function Dashboard({ 
   streakCount, 
@@ -30,11 +30,6 @@ export default function Dashboard({
   } else if (hasFile1) {
     calculatedProgress = 50;
   }
-
-  // Calculate SVG stroke offset for r=58 circle (circumference = 2 * PI * r = ~364.4)
-  const radius = 58;
-  const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = circumference - (calculatedProgress / 100) * circumference;
 
   return (
     <div className="w-full min-h-screen bg-slate-50 font-sans pb-32 text-slate-800">

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { ArrowLeft, RotateCcw, Volume2, Check, X, Star, ChevronLeft, ChevronRight, Bookmark, BookmarkCheck, Shuffle, Eye, EyeOff } from 'lucide-react';
+import React, { useState, useCallback } from 'react';
+import { ArrowLeft, RotateCcw, Volume2, Check, Star, ChevronLeft, ChevronRight, Bookmark, BookmarkCheck, Shuffle, Eye, EyeOff } from 'lucide-react';
 
 const VOCAB_DATA = {
   file1: {
@@ -42,7 +42,7 @@ const VOCAB_DATA = {
   }
 };
 
-export default function VocabularyFlashcards({ vocabProgress, setVocabProgress, setView }) {
+export default function VocabularyFlashcards({ vocabProgress, setVocabProgress, setView: _setView }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -95,7 +95,7 @@ export default function VocabularyFlashcards({ vocabProgress, setVocabProgress, 
     if (touchStart === null) return;
     const diff = touchStart - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 60) {
-      diff > 0 ? goToNext() : goToPrev();
+      if (diff > 0) { goToNext(); } else { goToPrev(); }
     }
     setTouchStart(null);
   };

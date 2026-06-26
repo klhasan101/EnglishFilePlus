@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, Send, Smile, Mic, Volume2, Sparkles, Check, Coffee } from 'lucide-react';
+import { Send, Smile, Mic, Volume2, Check, Coffee } from 'lucide-react';
 
 export default function ChatSimulator({ chatHistory, setChatHistory }) {
   const [inputText, setInputText] = useState('');

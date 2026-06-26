@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Play, Pause, ChevronRight, Mic, BookOpen, Layers, CheckCircle2, ChevronRightSquare, Volume2, Sparkles } from 'lucide-react';
+import { ArrowLeft, Play, Pause, ChevronRight, Mic, BookOpen, Layers, Sparkles } from 'lucide-react';
 
 export default function LessonHub({ setView, setSelectedPhrase, speechGoalCompleted }) {
   const [activeTab, setActiveTab] = useState('pronunciation');

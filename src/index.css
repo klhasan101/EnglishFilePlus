@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e293b; /* Oxford Blue */
+  --color-secondary: #10b981; /* Emerald Green */
+  --color-accent-amber: #f59e0b; /* Golden Amber */
+  --color-background-slate: #f8fafc; /* Slate-50 */
+  
+  /* System colors mapped to theme */
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container-lowest: #ffffff;
+  
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* Custom Customizations & Animations */
+
+/* Vertical roadmap dashed line */
+.roadmap-dashed-path {
+  background-image: linear-gradient(to bottom, #cbd5e1 50%, rgba(255,255,255,0) 0%);
+  background-position: center;
+  background-size: 2px 12px;
+  background-repeat: repeat-y;
+}
+
+/* Pulse animation for the current active node ring */
+.pulsing-ring::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 4px solid #10b981; /* Emerald Green */
+  border-radius: 9999px;
+  animation: pulse-ring-animation 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-ring-animation {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .4; transform: scale(1.08); }
+}
+
+/* Gloss effect gradient overlay */
+.gloss-effect {
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 60%);
+}
+
+/* Wave animation for audio playback bars */
+.audio-wave-bar {
+  animation: wave-bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes wave-bounce {
+  0%, 100% { height: 4px; }
+  50% { height: 24px; }
+}
+
+/* Micro-animation transitions */
+.smooth-press {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.smooth-press:active {
+  transform: scale(0.96);
+}
+
+/* Custom Scrollbar for Chat Panel */
+.chat-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* Pulse animation for mic buttons */
+.mic-pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 9999px;
+  background-color: rgba(16, 185, 129, 0.2);
+  animation: mic-pulse-ring-anim 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  z-index: 0;
+}
+
+@keyframes mic-pulse-ring-anim {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  70% { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+/* Hide scrollbar for inline suggestion lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe area padding helper for PWA mobile viewports */
+.pb-safe {
+  padding-bottom: cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+/* 3D Flashcard flip container */
+.perspective-\[1000px\] {
+  perspective: 1000px;
+}
+
+/* Scale-in animation for radio selection */
+@keyframes scale-in {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+/* Flashcard slide transitions */
+.flashcard-slide-left {
+  animation: slideOutLeft 0.25s ease-out forwards;
+}
+.flashcard-slide-right {
+  animation: slideOutRight 0.25s ease-out forwards;
+}
+
+@keyframes slideOutLeft {
+  to { transform: translateX(-100%) scale(0.95); opacity: 0; }
+}
+
+@keyframes slideOutRight {
+  to { transform: translateX(100%) scale(0.95); opacity: 0; }
+}
+
+/* Form input focus glow */
+.input-glow:focus-within {
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.08);
+}
